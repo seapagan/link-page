@@ -4,12 +4,18 @@ For this app, the home page will be the only page, so this module will only
 define one route. No saying what the future holds, though!
 """
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
 router = APIRouter()
 
 
 @router.get("/")
-async def root() -> dict[str, str]:
+async def root(request: Request) -> HTMLResponse:
     """Root route, which will be the only route for this app right now."""
-    return {"message": "App is working!"}
+    templates = Jinja2Templates(directory="app/static/templates")
+
+    return templates.TemplateResponse(
+        request=request, name="index.html", context={}
+    )
