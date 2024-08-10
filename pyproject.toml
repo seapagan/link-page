@@ -12,6 +12,8 @@ package-mode = false
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
 
+fastapi = {extras = ["standard"], version = "^0.112.0"}
+simple-toml-settings = "^0.7.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
