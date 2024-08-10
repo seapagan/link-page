@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link href="{{ url_for('static', path='main.css') }}" rel="stylesheet" />
     <title>{{ settings.name | default("My Portfolio") }}</title>
   </head>
@@ -12,7 +15,7 @@
       <h2>{% if settings.role %}{{ settings.role }}{% else %}<span class="missing-setting">'role' is not set!</span>{% endif %}</h2>
     </header>
     <main>
-      <ul>
+      <ul class="main-list">
         {% if settings.homepage %}
           <li><a href="{{ settings.homepage.url }}">{{ settings.homepage.title }}</a></li>
         {% else %}
