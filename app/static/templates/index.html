@@ -4,21 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ url_for('static', path='main.css') }}" rel="stylesheet" />
-    <title>{{ name }}</title>
+    <title>{{ settings.name }}</title>
   </head>
   <body>
     <header>
-            <h1>{{ name }}</h1>
-      <h2>{{ role }}</h2>
+            <h1>{{ settings.name }}</h1>
+      <h2>{{ settings.role }}</h2>
     </header>
     <main>
       <ul>
-        <li><a href="{{ homepage.url }}">{{ homepage.title }}</a></li>
-        <li><a href="{{ github }}">My GitHub Profile</a></li>
-        <li><a href="">Twitter</a></li>
-        <li><a href="">Medium</a></li>
-        <li>etc...</li>
+        <li><a href="{{ settings.homepage.url }}">{{ settings.homepage.title }}</a></li>
+        <li><a href="{{ settings.github }}">My GitHub Profile</a></li>
       </ul>
+    <h3>My Social Media</h3>
     </main>
     <script src="{{ url_for('static', path='main.js') }}" />
 </script>

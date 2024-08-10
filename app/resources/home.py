@@ -18,13 +18,6 @@ async def root(request: Request) -> HTMLResponse:
     """Root route, which will be the only route for this app right now."""
     templates = Jinja2Templates(directory="app/static/templates")
 
-    context = {
-        "name": settings.name,
-        "role": settings.role,
-        "github": settings.github,
-        "homepage": settings.homepage,
-    }
-
     return templates.TemplateResponse(
-        request=request, name="index.html", context=context
+        request=request, name="index.html", context={"settings": settings}
     )

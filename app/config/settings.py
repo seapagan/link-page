@@ -10,6 +10,7 @@ class Settings(TOMLSettings):
     role: str
     homepage: dict[str, str]
     github: str
+    social: dict[str, str]
 
 
 settings = Settings.get_instance("linkpage", local_file=True)
