@@ -15,20 +15,36 @@
       <h2>{% if settings.role %}{{ settings.role }}{% else %}<span class="missing-setting">'role' is not set!</span>{% endif %}</h2>
     </header>
     <main>
-      <ul class="main-list">
-        {% if settings.homepage %}
-          <li><a href="{{ settings.homepage.url }}">{{ settings.homepage.title }}</a></li>
-        {% else %}
-          <li>Check your settings: <span class="missing-setting">'homepage' is not set</span></li>
-        {% endif %}
-        {% if settings.github_user %}
-          <li><a href="https://github.com/{{ settings.github_user }}">My GitHub Profile</a></li>
-        {% else %}
-          <li>Check your settings: <span class="missing-setting">'github_user' is not set</span></li>
-        {% endif %}
-      </ul>
-      <h3>My Social Media</h3>
-    </main>
+  <ul class="main-list">
+    {% if settings.homepage %}
+      <li>
+        <a href="{{ settings.homepage.url }}">
+          <span class="link-content">{{ settings.homepage.title }}</span>
+        </a>
+      </li>
+    {% else %}
+      <li class="non-link">
+        <span class="link-content">
+          Check your settings: <span class="missing-setting">'homepage' is not set</span>
+        </span>
+      </li>
+    {% endif %}
+    {% if settings.github_user %}
+      <li>
+        <a href="https://github.com/{{ settings.github_user }}">
+          <span class="link-content">My GitHub Profile</span>
+        </a>
+      </li>
+    {% else %}
+      <li class="non-link">
+        <span class="link-content">
+          Check your settings: <span class="missing-setting">'github_user' is not set</span>
+        </span>
+      </li>
+    {% endif %}
+  </ul>
+  <h3>My Social Media</h3>
+</main>
     <script src="{{ url_for('static', path='main.js') }}"></script>
   </body>
 </html>
