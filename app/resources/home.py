@@ -8,6 +8,8 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+from app.config import settings
+
 router = APIRouter()
 
 
@@ -16,6 +18,13 @@ async def root(request: Request) -> HTMLResponse:
     """Root route, which will be the only route for this app right now."""
     templates = Jinja2Templates(directory="app/static/templates")
 
+    context = {
+        "name": settings.name,
+        "role": settings.role,
+        "github": settings.github,
+        "homepage": settings.homepage,
+    }
+
     return templates.TemplateResponse(
-        request=request, name="index.html", context={}
+        request=request, name="index.html", context=context
     )
