@@ -2,14 +2,11 @@
 
 from fastapi import FastAPI
 
+from app.resources.routes import api_router
+
 app = FastAPI()
 
-
-@app.get("/")
-async def root() -> dict[str, str]:
-    """Root route, which will be the only route for this app right now."""
-    return {"message": "App is working!"}
-
+app.include_router(api_router)
 
 if __name__ == "__main__":
     import uvicorn
