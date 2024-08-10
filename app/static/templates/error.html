@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        .error-message {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .setup-instructions {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ error_type }} Error</h1>
+    <div class="error-message">
+        <p>An error occurred while trying to render the page template: {{ error_message }}</p>
+    </div>
+    <div class="setup-instructions">
+        <h2>How to resolve template rendering issues:</h2>
+        <ol>
+            <li>Ensure that all required template files exist in the <code>app/static/templates</code> directory.</li>
+            <li>Check that your template files have the correct file extensions (e.g., <code>.html</code>).</li>
+            <li>Verify that all variables used in the templates are properly passed in the context.</li>
+            <li>Look for syntax errors in your template files, such as unclosed tags or incorrect Jinja2 syntax.</li>
+            <li>Make sure your <code>settings</code> object is properly configured and accessible if it's used in the templates.</li>
+            <li>If you're seeing an Undefined Variable error, check that all variables used in the template are properly defined in your route's context.</li>
+        </ol>
+        <p>If you continue to experience issues, please check the application logs for more detailed error information about the specific template rendering problem.</p>
+    </div>
+</body>
+</html>
