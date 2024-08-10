@@ -9,7 +9,7 @@ class Settings(TOMLSettings):
     name: str
     role: str
     homepage: dict[str, str]
-    github: str
+    github_user: str
     social: dict[str, str]
 
 

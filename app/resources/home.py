@@ -25,8 +25,10 @@ async def root(request: Request) -> HTMLResponse:
     templates = Jinja2Templates(directory="app/static/templates")
 
     try:
-        return templates.TemplateResponse(
+        result = templates.TemplateResponse(
             request=request, name="index.html", context={"settings": settings}
         )
     except (TemplateError, UndefinedError) as e:
         raise JinjaTemplateError(e) from e
+
+    return result
