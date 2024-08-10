@@ -4,37 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ url_for('static', path='main.css') }}" rel="stylesheet" />
-    <title>{{ settings.name | default("Not Set") }}</title>
+    <title>{{ settings.name | default("My Portfolio") }}</title>
   </head>
   <body>
     <header>
-      {% if settings.name %}
-        <h1>{{ settings.name }}</h1>
-      {% else %}
-        <h1 class="missing-setting">'name' is not set!</h1>
-      {% endif %}
-
-      {% if settings.role %}
-        <h2>{{ settings.role }}</h2>
-      {% else %}
-        <h2 class="missing-setting">'role' is not set!</h2>
-      {% endif %}
+      <h1>{% if settings.name %}{{ settings.name }}{% else %}<span class="missing-setting">'name' is not set!</span>{% endif %}</h1>
+      <h2>{% if settings.role %}{{ settings.role }}{% else %}<span class="missing-setting">'role' is not set!</span>{% endif %}</h2>
     </header>
     <main>
       <ul>
         {% if settings.homepage %}
-            <li><a href="{{ settings.homepage.url }}">{{ settings.homepage.title }}</a></li>
+          <li><a href="{{ settings.homepage.url }}">{{ settings.homepage.title }}</a></li>
         {% else %}
-                <li class="missing-setting">Check your settings: <strong>'homepage'</strong> is not set</li>
+          <li>Check your settings: <span class="missing-setting">'homepage' is not set</span></li>
         {% endif %}
         {% if settings.github_user %}
-            <li><a href="https://github.com/{{ settings.github_user }}">My GitHub Profile</a></li>
+          <li><a href="https://github.com/{{ settings.github_user }}">My GitHub Profile</a></li>
         {% else %}
-            <li class="missing-setting">Check your settings: <strong>'github_user'</strong> is not set</li>
+          <li>Check your settings: <span class="missing-setting">'github_user' is not set</span></li>
         {% endif %}
       </ul>
-    <h3>My Social Media</h3>
+      <h3>My Social Media</h3>
     </main>
-    <script src="{{ url_for('static', path='main.js') }}" />
+    <script src="{{ url_for('static', path='main.js') }}"></script>
   </body>
 </html>

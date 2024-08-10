@@ -4,6 +4,8 @@ For this app, the home page will be the only page, so this module will only
 define one route. No saying what the future holds, though!
 """
 
+from typing import Union
+
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -15,7 +17,12 @@ router = APIRouter()
 
 
 class JinjaTemplateError(Exception):
-    def __init__(self, original_exception):
+    """Custom exception for Template Errors."""
+
+    def __init__(
+        self, original_exception: Union[TemplateError, UndefinedError]
+    ) -> None:
+        """Initialize the class."""
         self.original_exception = original_exception
 
 

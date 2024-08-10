@@ -8,4 +8,6 @@ h1 {
   border: 1px solid #f5c6cb;
   padding: 2px 5px;
   border-radius: 3px;
+  display: inline;
+  white-space: normal;
 }
