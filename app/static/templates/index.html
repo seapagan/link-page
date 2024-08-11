@@ -78,6 +78,52 @@
         {% endif %}
       </ul>
       <h3>My Social Media</h3>
+      {% if settings.social %}
+        <ul class="social-list">
+          {% if settings.social.twitter %}
+            <li>
+              <a href="https://x.com/{{ settings.social.twitter }}">
+                <img src="/static/icons/twitter.svg">
+              </a>
+            </li>
+          {% endif %}
+          {% if settings.social.linkedin %}
+            <li>
+              <a href="https://linkedin.com/in/{{ settings.social.linkedin }}">
+                <img src="/static/icons/linkedin.svg">
+              </a>
+            </li>
+          {% endif %}
+          {% if settings.social.youtube %}
+            <li>
+              <a href="https://youtube.com/{{ settings.social.youtube }}">
+                <img src="/static/icons/youtube.svg">
+              </a>
+            </li>
+          {% endif %}
+          {% if settings.social.medium %}
+            <li>
+              <a href="https://medium.com/@{{ settings.social.medium }}">
+                <img src="/static/icons/medium.svg">
+              </a>
+            </li>
+          {% endif %}
+          {% if settings.social.devto %}
+            <li>
+              <a href="https://dev.to/{{ settings.social.devto }}">
+                <img src="/static/icons/devto.svg">
+              </a>
+            </li>
+          {% endif %}
+          {% if settings.social.twitch %}
+            <li>
+              <a href="https://twitch.tv/{{ settings.social.twitch }}">
+                <img src="/static/icons/twitch.svg">
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      {% endif %}
     </main>
     <script src="{{ url_for('static', path='main.js') }}"></script>
   </body>

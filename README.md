@@ -4,6 +4,9 @@ WIP app to create a link page for social media profiles, Homepage, GitHub, etc.
 The use-case that prompted this is to have a changing target for a static link
 in a QR code on a business card.
 
+It's also an example of using FastAPI with Jinja2 templates. This allows having
+a simple web site, but still able to access config files, databases and API's.
+
 <!-- vim-markdown-toc GFM -->
 
 - [Development setup](#development-setup)

@@ -79,6 +79,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-top: 2em;
 }
 
 .main-list {
@@ -126,6 +127,32 @@ body {
   flex-shrink: 0;
   position: relative;
   top: -0.1em;
+}
+
+.social-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  list-style-type: none;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.social-list li {
+  transition: all 0.3s ease;
+}
+
+.social-list li:hover {
+  transform: translateY(-5px);
+}
+
+.social-list img {
+  width: 56px;
+  height: 56px;
+}
+
+.social-list img.twitter {
+  color: blue;
 }
 
 .missing-setting {
