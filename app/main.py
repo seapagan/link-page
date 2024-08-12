@@ -17,7 +17,12 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 app.include_router(api_router)
 
+# this minimizes the css and js files in the static folder when they are
+# requested. If you don't want to minify the files, you can comment out the
+# line below
 app.add_middleware(MinifyStaticFilesMiddleware)
+# this middleware sets the scheme based on the X-Forwarded-Proto header,
+# see the comments in the middleware.py file for more information
 app.add_middleware(HTTPSMiddleware)
 
 
