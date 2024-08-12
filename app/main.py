@@ -7,7 +7,7 @@ from fastapi.templating import Jinja2Templates
 from jinja2.exceptions import UndefinedError
 
 from app.logger import logger
-from app.middleware import HTTPSMiddleware, MinifyStaticFilesMiddleware
+from app.middleware import HTTPSMiddleware
 from app.resources.home import JinjaTemplateError
 from app.resources.routes import api_router
 
@@ -17,10 +17,6 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 app.include_router(api_router)
 
-# this minimizes the css and js files in the static folder when they are
-# requested. If you don't want to minify the files, you can comment out the
-# line below
-app.add_middleware(MinifyStaticFilesMiddleware)
 # this middleware sets the scheme based on the X-Forwarded-Proto header,
 # see the comments in the middleware.py file for more information
 app.add_middleware(HTTPSMiddleware)
