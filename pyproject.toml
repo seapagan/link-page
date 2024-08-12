@@ -19,6 +19,7 @@ htmlmin = "^0.1.12"
 csscompressor = "^0.9.5"
 jsmin = "^3.0.1"
 
+gunicorn = "^23.0.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
