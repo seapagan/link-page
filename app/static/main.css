@@ -94,15 +94,10 @@ body {
 
 .main-list li {
   margin: 0.5rem 0;
-  width: 100%;
+  width: 80%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-
-/* .main-list li:hover { */
-/*   transform: translateY(-2px); */
-/*   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); */
-/* } */
 
 .main-list a,
 .main-list .non-link {
@@ -132,19 +127,15 @@ body {
 .social-list {
   display: flex;
   flex-direction: row;
-  gap: 0.5em;
+  gap: 1em;
   list-style-type: none;
-  padding: 1rem;
+  padding: 0 1rem;
   justify-content: center;
 }
 
 .social-list li {
   transition: all 0.3s ease;
 }
-
-/* .social-list li:hover { */
-/*   transform: translateY(-2px); */
-/* } */
 
 .social-list img {
   width: 56px;
