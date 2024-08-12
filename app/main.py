@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from jinja2.exceptions import UndefinedError
 
+from app.logger import logger
 from app.middleware import HTTPSMiddleware, MinifyStaticFilesMiddleware
 from app.resources.home import JinjaTemplateError
 from app.resources.routes import api_router
@@ -26,6 +27,8 @@ async def jinja_template_exception_handler(
 ) -> HTMLResponse:
     """Deal with template exceptions."""
     error_templates = Jinja2Templates(directory="app/static/templates")
+
+    logger.error("Template rendering error: %s", exc.original_exception)
 
     error_type = (
         "Undefined Variable"

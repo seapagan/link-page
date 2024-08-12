@@ -1,6 +1,5 @@
 """Define some middleware needed for this project."""
 
-import logging
 from collections.abc import Awaitable
 from pathlib import Path
 from typing import Callable
@@ -10,11 +9,7 @@ import jsmin  # type: ignore
 from fastapi import Request, Response
 from starlette.middleware.base import BaseHTTPMiddleware
 
-logging.basicConfig(
-    level=logging.INFO,
-)
-
-logger = logging.getLogger(__name__)
+from app.logger import logger
 
 CallNext = Callable[[Request], Awaitable[Response]]
 
@@ -25,7 +20,7 @@ class MinifyStaticFilesMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next: CallNext) -> Response:
         """Minify static CSS and JS files."""
         logger.info(
-            "Minify middleware: Processing %s (scheme: %s)",
+            "Minify middleware - Processing %s (scheme: %s)",
             request.url.path,
             request.url.scheme,
         )
@@ -47,7 +42,6 @@ class MinifyStaticFilesMiddleware(BaseHTTPMiddleware):
                     if file_path.suffix == ".css"
                     else "application/javascript"
                 )
-                logger.info("Minified %s", file_path)
                 return Response(content=minified_content, media_type=media_type)
 
             logger.warning("File not found: %s", file_path)
