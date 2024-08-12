@@ -15,6 +15,11 @@ python = ">=3.9,<4.0"
 fastapi = {extras = ["standard"], version = "^0.112.0"}
 simple-toml-settings = "^0.7.0"
 jinja2 = "^3.1.4"
+htmlmin = "^0.1.12"
+csscompressor = "^0.9.5"
+jsmin = "^3.0.1"
+
+gunicorn = "^23.0.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
@@ -60,7 +65,7 @@ pygments = ">=2.17.2"
 [tool.poe.tasks]
 pre.cmd = "pre-commit run --all-files"
 pre.help = "Run pre-commit checks"
-mypy.cmd = "mypy -/**/*.py tests/**/*.py --strict"
+mypy.cmd = "mypy app/**/*.py tests/**/*.py --strict"
 mypy.help = "Run mypy checks"
 format.cmd = "ruff format ."
 format.help = "Format code with Ruff"

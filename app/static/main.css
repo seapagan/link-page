@@ -82,12 +82,13 @@ body {
   margin-top: 2em;
 }
 
+
 .main-list {
   display: flex;
   flex-direction: column;
   list-style-type: none;
   padding: 1rem;
-  width: 80%;
+  max-width: 900px;
   margin: 0 auto;
   align-items: center;
 }
