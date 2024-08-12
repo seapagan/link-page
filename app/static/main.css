@@ -79,7 +79,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 2em;
+  padding-top: 2em;
 }
 
 .main-list {
