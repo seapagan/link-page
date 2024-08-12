@@ -93,6 +93,12 @@ test.help = "Run all tests (pytest)"
 "docs:serve:all".cmd = "mkdocs serve -w TODO.md -w CHANGELOG.md -w CONTRIBUTING.md -a 0.0.0.0:9000"
 "docs:serve:all".help = "Serve documentation locally on all interfaces"
 
+# specific tasks for this project to help development of the front-end
+serve.cmd = "uvicorn app.main:app --reload --reload-include='*.html' --reload-include='*.css' --reload-include='*.js' --reload-include='*.toml'"
+serve.help = "Run the FastAPI server with live reload and watch for changes"
+show.cmd = "browser-sync 'http://127.0.0.1:8000' 'app/static' --watch --files ."
+show.help = "Run browser-sync to show the site and watch for changes"
+
 # generate a CHANGELOG.md file from GitHub releases
 changelog.cmd = "github-changelog-md"
 changelog.help = "Generate a CHANGELOG.md file"
