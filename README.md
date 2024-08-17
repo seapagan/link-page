@@ -3,12 +3,24 @@
 A Python FastAPI app to create a link page for social media profiles, Homepage,
 GitHub, etc.
 
-The use-case that prompted this is to have a changing target for a static link
-in a QR code on a business card. The page is deliberately simple and static to
-ensure that it loads quickly and is easy to maintain.
+The use-case that prompted this is to have a configurable target for a static
+link in a QR code on a business card. The page is deliberately simple and static
+to ensure that it loads quickly and is easy to maintain.
 
-It's also an example of using FastAPI with Jinja2 templates. This allows having
+In addition:
+
+- It's an example of using FastAPI with Jinja2 templates. This allows having
 a simple web site, but still able to access config files, databases and API's.
+- It shows how to hook into the 'uvicorn' logger so we can add our own logs to
+that and take advantage of the same formatting and colors as the rest of the
+uvicorn logging.
+- Shows how to use a `TOML` configuration file for your FastAPI applications.
+Shameless plug - it uses my
+[simple-toml-settings](https://github.com/seapagan/simple-toml-settings)
+library.
+
+I may build this into a complete 'linktree' type clone later with database use
+and user login etc. Just for fun :grin:
 
 <!-- vim-markdown-toc GFM -->
 
