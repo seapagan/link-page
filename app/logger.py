@@ -3,19 +3,24 @@
 import logging
 import sys
 
-logger = logging.getLogger()
+# try to use the 'uvicorn' logger
+logger = logging.getLogger("uvicorn")
 
-# create formatter
-formatter = logging.Formatter(fmt="%(levelname)s:     %(message)s")
+# if we cant get it make our own logger
+if not logger.hasHandlers():
+    logger = logging.getLogger()
 
-# create handler
-stream_handler = logging.StreamHandler(sys.stdout)
+    # create formatter
+    formatter = logging.Formatter(fmt="%(levelname)s:     %(message)s")
 
-# add formatter to stream_handler
-stream_handler.setFormatter(formatter)
+    # create handler
+    stream_handler = logging.StreamHandler(sys.stdout)
 
-# add handler to logger
-logger.handlers = [stream_handler]
+    # add formatter to stream_handler
+    stream_handler.setFormatter(formatter)
 
-# set logging level
-logger.setLevel(logging.INFO)
+    # add handler to logger
+    logger.handlers = [stream_handler]
+
+    # set logging level
+    logger.setLevel(logging.INFO)
