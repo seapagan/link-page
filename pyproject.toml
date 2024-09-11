@@ -12,7 +12,7 @@ package-mode = false
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
 
-fastapi = {extras = ["standard"], version = "^0.112.1"}
+fastapi = {extras = ["standard"], version = "^0.114.1"}
 simple-toml-settings = "^0.7.0"
 jinja2 = "^3.1.4"
 htmlmin = "^0.1.12"
