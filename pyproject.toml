@@ -13,7 +13,7 @@ package-mode = false
 python = ">=3.9,<4.0"
 
 fastapi = {extras = ["standard"], version = "^0.114.1"}
-simple-toml-settings = "^0.7.0"
+simple-toml-settings = "^0.8.0"
 jinja2 = "^3.1.4"
 htmlmin = "^0.1.12"
 csscompressor = "^0.9.5"
