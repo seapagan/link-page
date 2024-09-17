@@ -422,14 +422,14 @@ wheels = [
 
 [[package]]
 name = "faker"
-version = "28.0.0"
+version = "28.4.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "python-dateutil" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/fe/d6/f1a81065124b23d1b56367570a4e00531005b4cca76a739b50ebf79a026d/faker-28.0.0.tar.gz", hash = "sha256:0d3c0399204aaf8205cc1750db443474ca0436f177126b2c27b798e8336cc74f", size = 1782120 }
+sdist = { url = "https://files.pythonhosted.org/packages/d9/94/f2421126b7e056ce4d7b274c3d221a13eba15ed4a2a1f27237240b29b653/faker-28.4.1.tar.gz", hash = "sha256:4294d169255a045990720d6f3fa4134b764a4cdf46ef0d3c7553d2506f1adaa1", size = 1794640 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/92/09/74f194bc3f5fe1d88cd4a882d51669431f82b17327840bd7fdd7b516c97e/Faker-28.0.0-py3-none-any.whl", hash = "sha256:6a3a08be54c37e05f7943d7ba5211d252c1de737687a46ad6f29209d8d5db11f", size = 1820129 },
+    { url = "https://files.pythonhosted.org/packages/d6/a9/3bdbd257f7aa3cb971bbf8c688827532ecfe6448168d211cb63b942f6431/Faker-28.4.1-py3-none-any.whl", hash = "sha256:e59c01d1e8b8e20a83255ab8232c143cb2af3b4f5ab6a3f5ce495f385ad8ab4c", size = 1834900 },
 ]
 
 [[package]]
@@ -804,7 +804,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "faker", specifier = "==28.0.0" },
+    { name = "faker", specifier = "==28.4.1" },
     { name = "github-changelog-md", specifier = "==0.9.5" },
     { name = "greenlet", specifier = "==3.1.0" },
     { name = "mkdocs", specifier = "==1.6.1" },
