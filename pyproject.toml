@@ -20,7 +20,7 @@ dependencies = [
 dev-dependencies = [
   "mypy == 1.11.2",
   "pre-commit == 3.8.0",
-  "pymarkdownlnt == 0.9.22",
+  "pymarkdownlnt ==0.9.23",
   "ruff ==0.6.5",
   "poethepoet == 0.28.0",
   "faker ==28.4.1",
