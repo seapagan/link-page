@@ -68,20 +68,24 @@ empty string or remove the line from the configuration file.
 
 > [!NOTE]
 > If you are serving your app using a gunicorn service etc, you will need to
-restart the service to pick up the changes to the configuration file.
+> restart the service to pick up the changes to the configuration file.
 
 ## Development setup
 
-Install the dependencies using Poetry:
+I have recently changed the development setup to use
+[uv](https://docs.astral.sh/uv/) for python version control and virtual
+environments instead of `poetry`
+
+Install the dependencies using `uv`:
 
 ```console
-poetry install
+uv sync
 ```
 
 Then, activate the virtual environment:
 
 ```console
-poetry shell
+source .venv/bin/activate
 ```
 
 You can use the poe task runner to easily run uvicorn:
@@ -89,6 +93,12 @@ You can use the poe task runner to easily run uvicorn:
 ```console
 poe serve
 ```
+
+> [!IMPORTANT]
+> This is the recommended way to run the app in development but **NOT
+> in production**. For production, you should use a proper ASGI server like
+> `gunicorn` to run the 'uvicorn' server, usually behind a reverse proxy like
+> `nginx`.
 
 These is also a browser-sync task that will start a browser-sync server to
 reload the browser when changes are made to the templates or static files,
@@ -103,7 +113,30 @@ reload when required.
 
 ## License
 
-This project is released under the terms of the MIT license.
+This project is licensed under the MIT License.
+
+```pre
+The MIT License (MIT)
+Copyright (c) 2024 Grant Ramsay
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+```
 
 ## Credits
 
