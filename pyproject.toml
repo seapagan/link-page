@@ -1,77 +1,62 @@
-[tool.poetry]
+[project]
 name = "link-page"
 version = "0.1.0"
 description = "A landing page to show your homepage, github, social media etc.."
-authors = ["Grant Ramsay <seapagan@gmail.com>"]
 readme = "README.md"
+requires-python = ">=3.9"
 license = "MIT"
+authors = [{ name = "Grant Ramsay", email = "grant@gnramsay.com" }]
+dependencies = [
+  "csscompressor == 0.9.5",
+  "fastapi[standard] == 0.114.1",
+  "gunicorn == 23.0.0",
+  "htmlmin == 0.1.12",
+  "jinja2 == 3.1.4",
+  "jsmin == 3.0.1",
+  "simple-toml-settings == 0.8.0",
+]
 
-package-mode = false
+[tool.uv]
+dev-dependencies = [
+  "mypy == 1.11.2",
+  "pre-commit == 3.8.0",
+  "pymarkdownlnt == 0.9.22",
+  "ruff == 0.6.4",
+  "poethepoet == 0.28.0",
+  "faker == 28.0.0",
+  "greenlet == 3.0.3",
+  "mock == 5.1.0",
+  "pyfakefs == 5.6.0",
+  "pytest == 8.3.3",
+  "pytest-cov == 5.0.0",
+  "pytest-xdist == 3.6.1",
+  "pytest-sugar == 1.0.0",
+  "pytest-randomly == 3.15.0",
+  "pytest-reverse == 1.7.0",
+  "pytest-mock == 3.14.0",
+  "pytest-watcher == 0.4.3",
+  "github-changelog-md == 0.9.5",
+  "mkdocs == 1.6.0",
+  "mkdocs-autorefs == 1.2.0",
+  "mkdocs-material == 9.5.34",
+  "mkdocs-git-revision-date-localized-plugin == 1.2.7",
+  "mkdocs-latest-git-tag-plugin == 0.1.2",
+  "mkdocs-minify-plugin == 0.8.0",
+  "mkdocstrings == 0.26.1",
+  "pymdown-extensions == 10.9",
+  "pygments == 2.18.0",
+]
 
-
-[tool.poetry.dependencies]
-python = ">=3.9,<4.0"
-
-fastapi = {extras = ["standard"], version = "^0.114.1"}
-simple-toml-settings = "^0.8.0"
-jinja2 = "^3.1.4"
-htmlmin = "^0.1.12"
-csscompressor = "^0.9.5"
-jsmin = "^3.0.1"
-
-gunicorn = "^23.0.0"
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-# Configure dev dependencies you can add or remove as needed
-[tool.poetry.group.dev.dependencies]
-# linting, type-checking and security checks
-mypy = ">=1.8.0"
-pre-commit = ">=3.6.2"
-pymarkdownlnt = ">=0.9.12"
-ruff = ">=0.3.0"
-
-# task runner
-poethepoet = ">=0.25.0"
-
-# testing
-faker = ">=23.3.0"
-greenlet = ">=3.0.3"
-mock = ">=5.1.0"
-pyfakefs = ">=5.3.5"
-pytest = ">=8.1.0"
-pytest-cov = ">=4.1,<6.0"
-pytest-xdist = ">=3.5.0"
-pytest-sugar = ">=1.0.0"
-pytest-randomly = ">=3.15.0"
-pytest-reverse = ">=1.7.0"
-pytest-mock = ">=3.12.0"
-pytest-watcher = ">=0.4.1"
-
-# documentation
-github-changelog-md = ">=0.9.1"
-mkdocs = ">=1.5.3"
-mkdocs-autorefs = ">=1.0.1"
-mkdocs-material = ">=9.5.12"
-mkdocs-git-revision-date-localized-plugin = ">=1.2.4"
-mkdocs-latest-git-tag-plugin = ">=0.1.2"
-mkdocs-minify-plugin = ">=0.8.0"
-mkdocstrings = ">=0.24.1"
-pymdown-extensions = ">=10.7"
-pygments = ">=2.17.2"
-
-# setup PoeThePoet tasks
 [tool.poe.tasks]
-pre.cmd = "pre-commit run --all-files"
+pre.cmd = "uv run pre-commit run --all-files"
 pre.help = "Run pre-commit checks"
-mypy.cmd = "mypy app/**/*.py tests/**/*.py --strict"
+mypy.cmd = "uv ruin mypy app/**/*.py tests/**/*.py --strict"
 mypy.help = "Run mypy checks"
-format.cmd = "ruff format ."
+format.cmd = "uv run ruff format ."
 format.help = "Format code with Ruff"
-ruff.cmd = "ruff check ."
+ruff.cmd = "uv run ruff check ."
 ruff.help = "Run Ruff checks"
-markdown.cmd = "pymarkdown scan  -r -/**/[!CHANGELOG,!.github/]*.md docs/**/*.md"
+markdown.cmd = "uv run pymarkdown scan  -r -/**/[!CHANGELOG,!.github/]*.md docs/**/*.md"
 markdown.help = "Run markdown checks"
 
 # run all linting checks in sequence. we want to run them all, even if one fails
@@ -79,28 +64,28 @@ lint.ignore_fail = "return_non_zero"
 lint.sequence = ["format", "ruff", "mypy", "markdown"]
 lint.help = "Run all linting checks"
 
-test.cmd = "pytest"
+test.cmd = "uv run pytest"
 test.help = "Run all tests (pytest)"
-"test:watch".cmd = "ptw . --now --clear"
+"test:watch".cmd = "uv run ptw . --now --clear"
 "test:watch".help = "Run tests using Pytest in watch mode"
 
-"docs:publish".cmd = "mkdocs gh-deploy"
+"docs:publish".cmd = "uv run mkdocs gh-deploy"
 "docs:publish".help = "Publish documentation to GitHub Pages"
-"docs:build".cmd = "mkdocs build"
+"docs:build".cmd = "uv run mkdocs build"
 "docs:build".help = "Build documentation locally to './site' folder"
-"docs:serve".cmd = "mkdocs serve -w TODO.md -w CHANGELOG.md -w CONTRIBUTING.md"
+"docs:serve".cmd = "uv run mkdocs serve -w TODO.md -w CHANGELOG.md -w CONTRIBUTING.md"
 "docs:serve".help = "Serve documentation locally"
-"docs:serve:all".cmd = "mkdocs serve -w TODO.md -w CHANGELOG.md -w CONTRIBUTING.md -a 0.0.0.0:9000"
+"docs:serve:all".cmd = "uv run mkdocs serve -w TODO.md -w CHANGELOG.md -w CONTRIBUTING.md -a 0.0.0.0:9000"
 "docs:serve:all".help = "Serve documentation locally on all interfaces"
 
 # specific tasks for this project to help development of the front-end
-serve.cmd = "uvicorn app.main:app --reload --reload-include='*.html' --reload-include='*.css' --reload-include='*.js' --reload-include='*.toml'"
+serve.cmd = "uv run uvicorn app.main:app --reload --reload-include='*.html' --reload-include='*.css' --reload-include='*.js' --reload-include='*.toml'"
 serve.help = "Run the FastAPI server with live reload and watch for changes"
-show.cmd = "browser-sync 'http://127.0.0.1:8000' 'app/static' --watch --files ."
+show.cmd = "uv run browser-sync 'http://127.0.0.1:8000' 'app/static' --watch --files ."
 show.help = "Run browser-sync to show the site and watch for changes"
 
 # generate a CHANGELOG.md file from GitHub releases
-changelog.cmd = "github-changelog-md"
+changelog.cmd = "uv run github-changelog-md"
 changelog.help = "Generate a CHANGELOG.md file"
 
 # configure assorted tools and linters
@@ -161,14 +146,14 @@ addopts = [
   "--cov-report",
   "term-missing",
   "--cov-report",
-  "html"
+  "html",
 ]
 filterwarnings = []
 mock_use_standalone_module = true
 markers = [
   "unit: Unit tests",
   "integration: Integration tests",
-  "rewrite: Tests need Rewriting", # will be skipped automatically
+  "rewrite: Tests need Rewriting",  # will be skipped automatically
 ]
 
 [tool.coverage.run]
