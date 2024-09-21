@@ -818,7 +818,7 @@ dev = [
     { name = "mkdocs-autorefs", specifier = "==1.2.0" },
     { name = "mkdocs-git-revision-date-localized-plugin", specifier = "==1.2.9" },
     { name = "mkdocs-latest-git-tag-plugin", specifier = "==0.1.2" },
-    { name = "mkdocs-material", specifier = "==9.5.35" },
+    { name = "mkdocs-material", specifier = "==9.5.36" },
     { name = "mkdocs-minify-plugin", specifier = "==0.8.0" },
     { name = "mkdocstrings", specifier = "==0.26.1" },
     { name = "mock", specifier = "==5.1.0" },
@@ -1014,7 +1014,7 @@ wheels = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.35"
+version = "9.5.36"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "babel" },
@@ -1029,9 +1029,9 @@ dependencies = [
     { name = "regex" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5a/69/e19bc4de98bce00345ecf9d5d6a19178dd121c0d06a121b374ffd27fcac7/mkdocs_material-9.5.35.tar.gz", hash = "sha256:0d233d7db067ac896bf22ee7950eebf2b1eaf26c155bb27382bf4174021cc117", size = 3994310 }
+sdist = { url = "https://files.pythonhosted.org/packages/ae/0c/b11d76836daa8f18ca3dddb0fc2d3b20a7c9e608f6125712ead8a860b15d/mkdocs_material-9.5.36.tar.gz", hash = "sha256:140456f761320f72b399effc073fa3f8aac744c77b0970797c201cae2f6c967f", size = 3994362 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/59/6b/84c7cde89fd957461fdbbf6ca02611a4a043d8afbd0bf990aa6a2d0b52c6/mkdocs_material-9.5.35-py3-none-any.whl", hash = "sha256:44e069d87732d29f4a2533ae0748fa0e67e270043270c71f04d0fba11a357b24", size = 8698196 },
+    { url = "https://files.pythonhosted.org/packages/52/f8/2e9d31e2cbcff5e3864cc1abcb15ae61dc4899446cf451aeac829a8e0641/mkdocs_material-9.5.36-py3-none-any.whl", hash = "sha256:36734c1fd9404bea74236242ba3359b267fc930c7233b9fd086b0898825d0ac9", size = 8698252 },
 ]
 
 [[package]]
