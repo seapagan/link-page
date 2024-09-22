@@ -13,7 +13,7 @@ deprecated==1.2.14
 dnspython==2.6.1
 email-validator==2.2.0
 exceptiongroup==1.2.2 ; python_full_version < '3.11'
-fastapi==0.114.2
+fastapi==0.115.0
 fastapi-cli==0.0.5
 github-changelog-md==0.9.5
 gunicorn==23.0.0
