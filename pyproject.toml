@@ -21,7 +21,7 @@ dev-dependencies = [
   "mypy == 1.11.2",
   "pre-commit == 3.8.0",
   "pymarkdownlnt ==0.9.23",
-  "ruff ==0.6.7",
+  "ruff ==0.6.8",
   "poethepoet ==0.29.0",
   "faker ==30.0.0",
   "greenlet ==3.1.1",
