@@ -43,7 +43,7 @@ dev-dependencies = [
   "mkdocs-latest-git-tag-plugin == 0.1.2",
   "mkdocs-minify-plugin == 0.8.0",
   "mkdocstrings == 0.26.1",
-  "pymdown-extensions ==10.10.1",
+  "pymdown-extensions ==10.11",
   "pygments == 2.18.0",
 ]
 
