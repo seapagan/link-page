@@ -19,7 +19,7 @@ dependencies = [
 [tool.uv]
 dev-dependencies = [
   "mypy == 1.11.2",
-  "pre-commit == 3.8.0",
+  "pre-commit ==4.0.0",
   "pymarkdownlnt ==0.9.23",
   "ruff ==0.6.8",
   "poethepoet ==0.29.0",
