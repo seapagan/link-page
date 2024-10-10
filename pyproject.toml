@@ -3,7 +3,7 @@ name = "link-page"
 version = "0.1.0"
 description = "A landing page to show your homepage, github, social media etc.."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.9,<3.13"
 license = "MIT"
 authors = [{ name = "Grant Ramsay", email = "grant@gnramsay.com" }]
 dependencies = [
