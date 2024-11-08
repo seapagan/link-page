@@ -1,0 +1,17 @@
+[linkpage]
+name = "Grant Ramsay"
+role = "Python and Full-Stack Developer"
+github_user = "seapagan"
+schema_version = "none"
+
+[linkpage.homepage]
+url = "https://www.gnramsay.com"
+title = "My Homepage"
+
+[linkpage.social]
+twitter = "gnramsay_dev"
+linkedin = "gnramsay"
+youtube = "seapagan"
+medium = "seapagan"
+devto = ""
+twitch = ""
