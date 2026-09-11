@@ -35,7 +35,7 @@ dev-dependencies = [
   "pytest-reverse == 1.7.0",
   "pytest-mock == 3.14.0",
   "pytest-watcher == 0.4.3",
-  "github-changelog-md == 0.9.5",
+  "github-changelog-md ==0.10.0",
   "mkdocs ==1.6.1",
   "mkdocs-autorefs == 1.2.0",
   "mkdocs-material ==9.5.40",
