@@ -44,7 +44,7 @@ dev-dependencies = [
   "mkdocs-minify-plugin == 0.8.0",
   "mkdocstrings == 0.26.1",
   "pymdown-extensions ==10.11.2",
-  "pygments == 2.18.0",
+  "pygments ==2.20.0",
 ]
 
 [tool.poe.tasks]
